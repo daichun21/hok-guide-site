@@ -1,196 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honor Of Kings - Complete Game Guides & Builds</title>
-    <meta name="description" content="Honor of Kings latest version guide,hero builds,rune matches,best team comps,newbie tutorial,event strategy all in one place">
-    <meta name="keywords" content="Honor of Kings,HOK hero build,HOK team composition,HOK newbie guide,HOK latest event,rank up tips">
+    <title>王者荣耀全攻略 - S44赛季最新版</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header class="navbar">
-        <div class="logo">HOK Global Guide</div>
-        <nav class="nav-menu">
-            <a href="#home" class="nav-active">Home</a>
-            <a href="#version">Version Guide</a>
-            <a href="#newbie">Newbie Guide</a>
-            <a href="#team">Team & Build</a>
-            <a href="#event">Latest Event</a>
-        </nav>
-        <div class="user-area">
-            <button id="loginBtn">Login</button>
-            <button id="registerBtn">Register</button>
-            <span class="credit-balance">Credits : <span id="userCredit">0</span></span>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">王者荣耀攻略站</h1>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#heroes">英雄库</a></li>
+                <li><a href="#guides">上分攻略</a></li>
+                <li><a href="#update">版本更新</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- User Popup Window -->
-    <div class="popup-box" id="loginPopup">
-        <div class="popup-content">
-            <h2>User Login</h2>
-            <input type="text" id="loginUser" placeholder="Enter username">
-            <input type="password" id="loginPwd" placeholder="Enter password">
-            <button class="submit-btn" onclick="userLogin()">Sign In</button>
-            <p>No account? <span onclick="switchRegister()">Go Register</span></p>
-        </div>
-    </div>
-
-    <div class="popup-box" id="regPopup">
-        <div class="popup-content">
-            <h2>Create Account</h2>
-            <input type="text" id="regUser" placeholder="Set username">
-            <input type="password" id="regPwd" placeholder="Set password">
-            <button class="submit-btn" onclick="userRegister()">Register Now</button>
-            <p>Already have account? <span onclick="switchLogin()">Sign in</span></p>
-        </div>
-    </div>
-
-    <!-- Member & Credit Entry -->
-    <div class="entry-row">
-        <div class="card-box member-card" onclick="openMemberPage()">
-            <h3>Membership Plan</h3>
-            <p>Unlock all premium guides</p>
-        </div>
-        <div class="card-box credit-card" onclick="openCreditPage()">
-            <h3>Buy Credits</h3>
-            <p>Unlock exclusive content anytime</p>
-        </div>
-    </div>
-
-    <!-- Advertising Position 1 -->
-    <div class="ad-space">Advertising Area 1 (Paste your Google Ads code directly here)</div>
-
-    <!-- Home Section -->
-    <section id="home" class="main-section">
-        <h1>Welcome To Honor Of Kings Global Official Guide</h1>
-        <p class="desc">We provide latest version analysis,hero outfits,rune collocation,high rank lineup,complete novice strategy and real-time game event guidance.Free content for all users,premium high-quality strategies need credits or membership to unlock.</p>
-    </section>
-
-    <!-- Version Strategy Section -->
-    <section id="version" class="main-section">
-        <h2>Latest Version Update Guide</h2>
-        <div class="free-content">
-            <h3>Free Public Content</h3>
-            <p>Current version overall balance adjustment,overall hero strength trend,rough rank environment analysis.All basic information open for every visitor totally free.</p>
-        </div>
-        <div class="lock-content">
-            <h3>Advanced Version Depth Analysis [Locked]</h3>
-            <p>Version T0/T1 hero tier list,hidden attribute modification,weakened and strengthened hero detailed data,high winning rate core gameplay.</p>
-            <button class="unlock-btn" onclick="checkUserLock(10)">Unlock 10 Credits</button>
+    <!-- 首页banner -->
+    <section id="home" class="banner">
+        <div class="banner-content">
+            <h2>S44赛季全攻略</h2>
+            <p>新手入门 | 英雄详解 | 团战意识 | 逆风翻盘</p>
+            <a href="#heroes" class="btn">查看英雄库</a>
         </div>
     </section>
 
-    <!-- Newbie Guide Section -->
-    <section id="newbie" class="main-section">
-        <h2>Complete Newbie Entry Tutorial</h2>
-        <div class="free-content">
-            <h3>Basic Beginner Guidance</h3>
-            <p>Game basic operation explanation,resource usage introduction,game mechanism common sense,simple hero recommendation for new players.</p>
-        </div>
-        <div class="lock-content">
-            <h3>Senior Quick Growth Strategy [Locked]</h3>
-            <p>New player fast upgrade route,resource reasonable arrangement,early stage development skills,efficient way to raise winning rate,avoid all novice mistakes.</p>
-            <button class="unlock-btn" onclick="checkUserLock(30)">Unlock 30 Credits</button>
-        </div>
-    </section>
-
-    <!-- Lineup Build Section -->
-    <section id="team" class="main-section">
-        <h2>Hero Build & Team Compositions</h2>
-        <div class="free-content">
-            <h3>Ordinary Hero Outfit</h3>
-            <p>Common mainstream equipment schemes,simple rune matching,conventional playing ideas for each position.</p>
-        </div>
-        <div class="lock-content">
-            <h3>Top Tier Full Meta Build & Lineup [Locked]</h3>
-            <p>Full hero exclusive best rune,late stage ultimate outfit,strong synergistic team combination,five row stable winning lineup,position core operation detail.</p>
-            <button class="unlock-btn" onclick="checkUserLock(50)">Unlock 50 Credits</button>
-        </div>
-    </section>
-
-    <!-- Game Event Section -->
-    <section id="event" class="main-section">
-        <h2>Latest Game Activity Strategy</h2>
-        <div class="free-content">
-            <h3>Event Basic Introduction</h3>
-            <p>Current ongoing game events,basic reward preview,simple event task introduction.</p>
-        </div>
-        <div class="lock-content">
-            <h3>Event High Benefit Raiders [Locked]</h3>
-            <p>Quick complete event tasks,maximize reward acquisition,hidden event welfare,limited skin obtaining method,event cost-saving skills.</p>
-            <button class="unlock-btn" onclick="checkUserLock(20)">Unlock 20 Credits</button>
-        </div>
-    </section>
-
-    <!-- Advertising Position 2 -->
-    <div class="ad-space">Advertising Area 2 (Paste your Google Ads code directly here)</div>
-
-    <!-- Member Popup Page -->
-    <div class="popup-box" id="memberPopup">
-        <div class="popup-content wide-pop">
-            <h2>Our Membership Packages</h2>
-            <div class="plan-list">
-                <div class="plan-item">
-                    <h4>Basic Monthly Member</h4>
-                    <p>Price : $9.99 / Month</p>
+    <!-- 新手核心攻略 -->
+    <section class="guide-section">
+        <div class="container">
+            <h2 class="section-title">新手必学核心</h2>
+            <div class="guide-cards">
+                <div class="card">
+                    <h3>分路职责</h3>
                     <ul>
-                        <li>No website advertisement</li>
-                        <li>Daily free credits reward</li>
-                        <li>Part premium content access</li>
+                        <li>对抗路：抗压、带线、开团</li>
+                        <li>发育路：保命、打后期伤害</li>
+                        <li>中路：清线、游走、控场</li>
+                        <li>打野：控龙、带节奏、抓人</li>
+                        <li>游走：视野、保C、开团</li>
                     </ul>
-                    <button class="pay-btn" onclick="openStripe()">Subscribe Now</button>
                 </div>
-                <div class="plan-item">
-                    <h4>Premium Monthly Member</h4>
-                    <p>Price : $19.99 / Month</p>
+                <div class="card">
+                    <h3>经济技巧</h3>
                     <ul>
-                        <li>All ads removed</li>
-                        <li>Mass daily credits</li>
-                        <li>All strategy unlimited view</li>
+                        <li>补刀：最后一刀多20-30金币</li>
+                        <li>优先推塔：塔>龙>人头</li>
+                        <li>控河道之灵：固定经济来源</li>
+                        <li>不盲目追人：丢兵线=丢经济</li>
                     </ul>
-                    <button class="pay-btn" onclick="openStripe()">Subscribe Now</button>
                 </div>
-                <div class="plan-item">
-                    <h4>Ultimate Annual Member</h4>
-                    <p>Price : $89.99 / Year</p>
+                <div class="card">
+                    <h3>团战站位</h3>
                     <ul>
-                        <li>Permanent ad-free</li>
-                        <li>Monthly huge credit gift</li>
-                        <li>Exclusive latest priority strategy</li>
+                        <li>坦克：前排抗伤、先手开团</li>
+                        <li>射手：最后排、保命第一</li>
+                        <li>刺客：绕后、秒C位就走</li>
+                        <li>法师：坦克身后、远程消耗</li>
                     </ul>
-                    <button class="pay-btn" onclick="openStripe()">Subscribe Now</button>
                 </div>
             </div>
-            <button class="close-pop" onclick="closeAllPopup()">Close</button>
         </div>
-    </div>
+    </section>
 
-    <!-- Credit Recharge Popup -->
-    <div class="popup-box" id="creditPopup">
-        <div class="popup-content wide-pop">
-            <h2>Credit Recharge Packages</h2>
-            <div class="credit-list">
-                <div class="credit-item">
-                    <h4>500 Credits</h4>
-                    <p>Only $5.00 Permanent valid</p>
-                    <button class="pay-btn" onclick="openStripe()">Buy Now</button>
+    <!-- 英雄库入口 -->
+    <section id="heroes" class="hero-section">
+        <div class="container">
+            <h2 class="section-title">英雄库（S44强度榜）</h2>
+            <div class="hero-cards">
+                <a href="#daji" class="hero-card">
+                    <h3>妲己</h3>
+                    <p>法师 | 中路 | T1 | 难度低</p>
+                </a>
+                <a href="#lubu" class="hero-card">
+                    <h3>吕布</h3>
+                    <p>战士 | 对抗路 | T1 | 难度中</p>
+                </a>
+                <a href="#zhaoyun" class="hero-card">
+                    <h3>赵云</h3>
+                    <p>战士 | 打野 | T1 | 难度中</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 英雄详情 -->
+    <section id="daji" class="hero-detail">
+        <div class="container">
+            <h2 class="section-title">妲己 - 魅力维加斯</h2>
+            <div class="detail-content">
+                <div class="attr">
+                    <h3>基础属性</h3>
+                    <p>生命值：3298 | 法力值：490 | 物攻：162 | 移速：350 | 射程：700</p>
                 </div>
-                <div class="credit-item">
-                    <h4>2200 Credits + 200 Bonus</h4>
-                    <p>Only $20.00 Best seller</p>
-                    <button class="pay-btn" onclick="openStripe()">Buy Now</button>
+                <div class="skill">
+                    <h3>技能详解</h3>
+                    <ul>
+                        <li><strong>被动·失心</strong>：技能命中叠印记，3层眩晕1.5秒+减魔防30%</li>
+                        <li><strong>一技能·灵魂冲击</strong>（CD5秒）：直线远程伤害，清兵/消耗</li>
+                        <li><strong>二技能·偶像魅力</strong>（CD12秒）：单体眩晕1.5秒，核心控制</li>
+                        <li><strong>三技能·女王崇拜</strong>（CD25秒）：5枚法球爆发，秒后排核心</li>
+                    </ul>
                 </div>
-                <div class="credit-item">
-                    <h4>6000 Credits + 1000 Bonus</h4>
-                    <p>Only $50.00 Highest discount</p>
-                    <button class="pay-btn" onclick="openStripe()">Buy Now</button>
+                <div class="combos">
+                    <h3>核心连招</h3>
+                    <p>对线：2→1→3 | 蹲草：1→2→3 | 团战：2→1→3（秒C位）</p>
+                </div>
+                <div class="equip">
+                    <h3>铭文&出装</h3>
+                    <p>铭文：梦魇10+心眼10+狩猎10</p>
+                    <p>出装：抵抗之靴→回响之杖→痛苦面具→博学者之怒→虚无法杖→辉月</p>
+                </div>
+                <div class="counter">
+                    <h3>克制关系</h3>
+                    <p>克制：后羿、鲁班、安琪拉 | 被克制：张良、东皇、廉颇</p>
                 </div>
             </div>
-            <button class="close-pop" onclick="closeAllPopup()">Close</button>
         </div>
-    </div>
+    </section>
+
+    <section id="lubu" class="hero-detail">
+        <div class="container">
+            <h2 class="section-title">吕布 - 无双之魔</h2>
+            <div class="detail-content">
+                <div class="attr">
+                    <h3>基础属性</h3>
+                    <p>生命值：3564 | 法力值：0 | 物攻：174 | 移速：370 | 射程：450</p>
+                </div>
+                <div class="skill">
+                    <h3>技能详解</h3>
+                    <ul>
+                        <li><strong>被动·饕餮血统</strong>：普攻/技能带35%物穿，附魔后真实伤害+回血</li>
+                        <li><strong>一技能·方天画斩</strong>（CD5秒）：扇形AOE，命中英雄附魔</li>
+                        <li><strong>二技能·贪狼之握</strong>（CD10秒）：吸盾+减速，换血/抗伤</li>
+                        <li><strong>三技能·魔神降世</strong>（CD50秒）：大范围击飞，落地附魔+霸体</li>
+                    </ul>
+                </div>
+                <div class="combos">
+                    <h3>核心连招</h3>
+                    <p>对线：1→普攻→2→普攻 | 团战：1→3→2→普攻 | 蹲草：3→1→2→普攻</p>
+                </div>
+                <div class="equip">
+                    <h3>铭文&出装</h3>
+                    <p>铭文：狩猎10+鹰眼10+红月10</p>
+                    <p>出装：抵抗之靴→破军→极寒风暴→魔女斗篷→不祥征兆→名刀</p>
+                </div>
+                <div class="counter">
+                    <h3>克制关系</h3>
+                    <p>克制：老夫子、夏侯惇、关羽 | 被克制：貂蝉、马可波罗</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="zhaoyun" class="hero-detail">
+        <div class="container">
+            <h2 class="section-title">赵云 - 苍天翔龙</h2>
+            <div class="detail-content">
+                <div class="attr">
+                    <h3>基础属性</h3>
+                    <p>生命值：3485 | 法力值：430 | 物攻：170 | 移速：380 | 射程：450</p>
+                </div>
+                <div class="skill">
+                    <h3>技能详解</h3>
+                    <ul>
+                        <li><strong>被动·龙鸣</strong>：血量<30%时免伤20%，残血更肉</li>
+                        <li><strong>一技能·惊雷之龙</strong>（CD7秒）：短位移+加速，可穿墙</li>
+                        <li><strong>二技能·破云之龙</strong>（CD6秒）：4段伤害+回血（命中英雄翻倍）</li>
+                        <li><strong>三技能·天翔之龙</strong>（CD40秒）：长位移+击飞，切C核心</li>
+                    </ul>
+                </div>
+                <div class="combos">
+                    <h3>核心连招</h3>
+                    <p>打野：1→3→2→普攻 | 团战：1→3→2→普攻 | 反打：3→2→1→普攻</p>
+                </div>
+                <div class="equip">
+                    <h3>铭文&出装</h3>
+                    <p>铭文：狩猎10+鹰眼10+异变10</p>
+                    <p>出装：追击刀锋→抵抗之靴→暗影战斧→宗师之力→破军→魔女斗篷</p>
+                </div>
+                <div class="counter">
+                    <h3>克制关系</h3>
+                    <p>克制：后羿、鲁班、妲己 | 被克制：张良、东皇、廉颇</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 上分攻略专区 -->
+    <section id="guides" class="guide-section">
+        <div class="container">
+            <h2 class="section-title">上分攻略专区</h2>
+            <div class="guide-cards">
+                <div class="card">
+                    <h3>逆风翻盘技巧</h3>
+                    <ul>
+                        <li>死守塔下，不盲目接团</li>
+                        <li>清线拖后期，等对面失误</li>
+                        <li>抓单秒C，控主宰推塔</li>
+                        <li>避免5打5，打人数差</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>操作设置推荐</h3>
+                    <ul>
+                        <li>攻击模式：自由攻击（进阶）</li>
+                        <li>锁敌：开启敌方头像显示</li>
+                        <li>轮盘：全固定（走位更稳）</li>
+                        <li>镜头：偏移+灵敏度70-90</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>打野节奏（速4）</h3>
+                    <ul>
+                        <li>红BUFF→蓝BUFF→河道蟹→鸟/狼</li>
+                        <li>速4后优先抓有控制的边路</li>
+                        <li>控第一条暴君，带前期节奏</li>
+                        <li>反野前先看对面打野位置</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 版本更新 -->
+    <section id="update" class="update-section">
+        <div class="container">
+            <h2 class="section-title">S44赛季更新（2026-05）</h2>
+            <div class="update-content">
+                <ul>
+                    <li>✅ 孙膑：二技能加速30%→130%（游走T0）</li>
+                    <li>✅ 吕布：被动穿透30%→35%，一技能伤害上调</li>
+                    <li>❌ 沈梦溪：二技能加速削弱，大招伤害下调</li>
+                    <li>✅ 扁鹊：新增复活机制，二技能改为直线控制</li>
+                    <li>✅ 海月：大招免伤改护盾，容错提升</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>王者荣耀攻略站 © 2026 | S44赛季最新版 | 无充值内容，纯玩法攻略</p>
+        </div>
+    </footer>
 
     <script src="main.js"></script>
 </body>
