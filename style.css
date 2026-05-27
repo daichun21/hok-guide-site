@@ -1,0 +1,183 @@
+{\rtf1\ansi\ansicpg936\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf0 \expnd0\expndtw0\kerning0
+* \{\
+    margin: 0;\
+    padding: 0;\
+    box-sizing: border-box;\
+    font-family: Arial, sans-serif;\
+\}\
+body \{\
+    background-color: #0f172a;\
+    color: #ffffff;\
+    line-height: 1.6;\
+\}\
+.navbar \{\
+    display: flex;\
+    justify-content: space-between;\
+    align-items: center;\
+    background: #1e293b;\
+    padding:15px 40px;\
+    position: sticky;\
+    top:0;\
+    z-index:99;\
+\}\
+.logo \{\
+    font-size:24px;\
+    font-weight:bold;\
+    color:#ffc107;\
+\}\
+.nav-menu a\{\
+    color:#fff;\
+    text-decoration:none;\
+    margin:0 12px;\
+    font-size:16px;\
+\}\
+.nav-menu a.nav-active\{\
+    color:#ffc107;\
+\}\
+.user-area\{\
+    display:flex;\
+    gap:15px;\
+    align-items:center;\
+\}\
+.user-area button\{\
+    padding:7px 16px;\
+    border:none;\
+    border-radius:6px;\
+    cursor:pointer;\
+    background:#2563eb;\
+    color:white;\
+\}\
+.credit-balance\{\
+    font-size:17px;\
+    color:#22c55e;\
+    font-weight:600;\
+\}\
+.entry-row\{\
+    display:flex;\
+    max-width:1100px;\
+    margin:30px auto;\
+    gap:30px;\
+    padding:0 20px;\
+\}\
+.card-box\{\
+    width:50%;\
+    background:#1e293b;\
+    padding:25px;\
+    border-radius:12px;\
+    text-align:center;\
+    cursor:pointer;\
+    transition: 0.3s ease;\
+\}\
+.card-box:hover\{\
+    transform: translateY(-6px);\
+    box-shadow: 0 8px 20px #2563eb40;\
+\}\
+.ad-space\{\
+    max-width:1100px;\
+    margin:35px auto;\
+    padding:30px;\
+    background:#334155;\
+    text-align:center;\
+    border-radius:10px;\
+    color:#ccc;\
+\}\
+.main-section\{\
+    max-width:1100px;\
+    margin:40px auto;\
+    padding:0 20px;\
+\}\
+.main-section h2\{\
+    color:#ffc107;\
+    margin-bottom:20px;\
+    padding-bottom:10px;\
+    border-bottom:1px solid #334155;\
+\}\
+.free-content\{\
+    background:#1e293b;\
+    padding:22px;\
+    border-radius:10px;\
+    margin-bottom:25px;\
+\}\
+.lock-content\{\
+    background:#471515;\
+    padding:22px;\
+    border-radius:10px;\
+    border:1px solid #ef4444;\
+\}\
+.unlock-btn\{\
+    margin-top:15px;\
+    padding:8px 20px;\
+    background:#ef4444;\
+    border:none;\
+    color:white;\
+    border-radius:5px;\
+    cursor:pointer;\
+\}\
+.popup-box\{\
+    position:fixed;\
+    width:100%;\
+    height:100%;\
+    background:#00000088;\
+    top:0;\
+    left:0;\
+    display:none;\
+    align-items:center;\
+    justify-content:center;\
+    z-index:1000;\
+\}\
+.popup-content\{\
+    background:#1e293b;\
+    padding:35px;\
+    border-radius:12px;\
+    width:420px;\
+\}\
+.wide-pop\{\
+    width:750px;\
+\}\
+.popup-content input\{\
+    width:100%;\
+    padding:12px;\
+    margin:12px 0;\
+    background:#334155;\
+    border:1px solid #444;\
+    color:#fff;\
+    border-radius:6px;\
+\}\
+.submit-btn,.close-pop,.pay-btn\{\
+    width:100%;\
+    padding:12px;\
+    margin-top:10px;\
+    border:none;\
+    border-radius:6px;\
+    cursor:pointer;\
+    background:#22c55e;\
+    color:white;\
+    font-weight:bold;\
+\}\
+.plan-list,.credit-list\{\
+    display:grid;\
+    grid-template-columns:1fr 1fr 1fr;\
+    gap:18px;\
+    margin-top:20px;\
+\}\
+.plan-item,.credit-item\{\
+    background:#273444;\
+    padding:18px;\
+    border-radius:8px;\
+    text-align:center;\
+\}\
+@media (max-width:768px)\{\
+    .navbar\{padding:15px 20px;flex-wrap:wrap;gap:15px;\}\
+    .entry-row\{flex-direction:column;\}\
+    .card-box\{width:100%;\}\
+    .plan-list,.credit-list\{grid-template-columns:1fr;\}\
+    .wide-pop\{width:92%;\}\
+\}}
