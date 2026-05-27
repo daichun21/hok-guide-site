@@ -1,116 +1,40 @@
-//User data local storage system
-let currentUser = null;
-window.onload = function(){
-    let localUser = localStorage.getItem("hokUser");
-    if(localUser){
-        currentUser = JSON.parse(localUser);
-        document.getElementById("userCredit").innerText = currentUser.credit;
-        document.getElementById("loginBtn").innerText = currentUser.username;
-        document.getElementById("registerBtn").style.display = "none";
-    }
-}
-
-//Login & Register Popup Control
-document.getElementById("loginBtn").addEventListener("click",function(){
-    document.getElementById("loginPopup").style.display = "flex";
-});
-document.getElementById("registerBtn").addEventListener("click",function(){
-    document.getElementById("regPopup").style.display = "flex";
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
 
-function switchLogin(){
-    document.getElementById("regPopup").style.display = "none";
-    document.getElementById("loginPopup").style.display = "flex";
-}
-function switchRegister(){
-    document.getElementById("loginPopup").style.display = "none";
-    document.getElementById("regPopup").style.display = "flex";
-}
-function closeAllPopup(){
-    document.querySelectorAll(".popup-box").forEach(item=>{
-        item.style.display = "none";
-    })
-}
+// 导航栏高亮
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
 
-//User Register Function
-function userRegister(){
-    let username = document.getElementById("regUser").value.trim();
-    let password = document.getElementById("regPwd").value.trim();
-    if(!username || !password){
-        alert("Please fill in complete username and password");
-        return;
-    }
-    let userData = {
-        username:username,
-        pwd:password,
-        credit:150,
-        memberType:0
-    };
-    localStorage.setItem("hokUser",JSON.stringify(userData));
-    alert("Register success! You get 150 free credits");
-    closeAllPopup();
-    location.reload();
-}
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.style.color = '#e63946';
+        } else {
+            link.style.color = '#fff';
+        }
+    });
+});
 
-//User Login Function
-function userLogin(){
-    let username = document.getElementById("loginUser").value.trim();
-    let password = document.getElementById("loginPwd").value.trim();
-    let local = localStorage.getItem("hokUser");
-    if(!local){
-        alert("Account not exist,please register first");
-        return;
-    }
-    let info = JSON.parse(local);
-    if(info.username===username && info.pwd===password){
-        currentUser = info;
-        localStorage.setItem("hokUser",JSON.stringify(currentUser));
-        alert("Login successful");
-        closeAllPopup();
-        location.reload();
-    }else{
-        alert("Wrong username or password");
-    }
-}
-
-//Open member page & credit page
-function openMemberPage(){
-    if(!currentUser){
-        alert("Please log in your account first");
-        return;
-    }
-    document.getElementById("memberPopup").style.display = "flex";
-}
-function openCreditPage(){
-    if(!currentUser){
-        alert("Please log in your account first");
-        return;
-    }
-    document.getElementById("creditPopup").style.display = "flex";
-}
-
-//Locked content credit deduction check
-function checkUserLock(costCredit){
-    if(!currentUser){
-        alert("Please login firstly to unlock premium content");
-        return;
-    }
-    if(currentUser.memberType > 0){
-        alert("Member privilege succeeded! Unlimited free view all locked content");
-        return;
-    }
-    if(currentUser.credit >= costCredit){
-        currentUser.credit -= costCredit;
-        localStorage.setItem("hokUser",JSON.stringify(currentUser));
-        document.getElementById("userCredit").innerText = currentUser.credit;
-        alert(`Consume ${costCredit} Credits successfully! You can browse full exclusive content now`);
-        location.reload();
-    }else{
-        alert(`Your credits insufficient! Need ${costCredit} Credits,you can purchase credits or open membership`);
-    }
-}
-
-//Stripe payment entrance (Reserved interface, later I teach you one-click docking)
-function openStripe(){
-    alert("Stripe payment entrance reserved! I will guide you connect official dollar payment channel later");
-}
+// 页面加载提示
+window.onload = function() {
+    console.log('王者荣耀攻略站加载完成！');
+    // 可选：添加加载完成提示
+    // alert('攻略站加载完成，祝你上分顺利！');
+};
